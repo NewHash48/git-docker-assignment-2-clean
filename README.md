@@ -9,3 +9,37 @@ The application listens on port 8000 and returns a text response when accessed o
 ## Verification
 
 The running application should be verified using an HTTP request to port 8000.
+## Build and run
+
+Build the Docker image:
+
+```bash
+docker build -t git-docker-app:test .
+```
+
+Start the application:
+
+```bash
+docker run -d --name app-test -p 8080:8000 git-docker-app:test
+```
+
+Check the response:
+
+```bash
+curl http://localhost:8080
+```
+
+Expected output:
+
+```text
+Welcome to Advanced Git Docker Application
+Status: healthy - sakeeb
+```
+
+View logs, then stop and remove the container:
+
+```bash
+docker logs app-test
+docker stop app-test
+docker rm app-test
+```
